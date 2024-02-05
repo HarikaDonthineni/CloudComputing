@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <style>
+      body {
+        color: #444;
+        background-color: #f4f4f4;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      fieldset {
+        font-size: 18px;
+        padding: 20px;
+        border: 2px solid #555;
+        width: 400px;
+        text-align: center;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.95);
+        margin-top: 50px;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="file"] {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid #555;
+        outline: none;
+        color: #555;
+      }
+
+      button {
+        font-size: 16px;
+        color: white;
+        background-color: #3498db;
+        border: 2px solid #2980b9;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 6px;
+        margin-top: 15px;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #2980b9;
+        font-weight: bold;
+      }
+
+      h2 {
+        background-color: #3498db;
+        color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #2980b9;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <div>
+        <h1>Sign in</h1>
+        <form action="{{url_for('login')}}" method="POST">
+          <div>{{ message }}</div>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="User Name"
+          />
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+          <button id="submit" type="submit" name="submit">Log In</button>
+        </form>
+        <p>
+          Not a User? Sign Up <a href="{{url_for('registration')}}">here!</a>
+        </p>
+      </div>
+    </fieldset>
+  </body>
+</html>
