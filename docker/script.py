@@ -4,6 +4,7 @@ from collections import Counter
 import subprocess
 
 def list_files(directory):
+    print(os.listdir(directory))
     return [f for f in os.listdir(directory) if f.endswith('.txt')]
 
 def count_words_in_file(filepath):
@@ -28,10 +29,11 @@ def main():
     with open(output_file, 'w') as out:
         out.write(f"List of text files in /home/data: {', '.join(files)}\n")
         for file in files:
-            filepath = os.path.join(directory, file)
-            word_count = count_words_in_file(filepath)
-            out.write(f"Total words in {file}: {word_count}\n")
-            total_words += word_count
+            if (file == "IF.txt" or file == "Limerick-1.txt"):
+              filepath = os.path.join(directory, file)
+              word_count = count_words_in_file(filepath)
+              out.write(f"Total words in {file}: {word_count}\n")
+              total_words += word_count
         out.write(f"Grand total of words in both the files: {total_words}\n")
         top_words = top_three_words(os.path.join(directory, "IF.txt"))
         for word, count in top_words:

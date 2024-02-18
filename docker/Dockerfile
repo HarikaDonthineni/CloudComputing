@@ -4,10 +4,10 @@ FROM python:3.9-slim
 # Create the directory structure
 RUN mkdir -p /home/data /home/output
 
-# Copy files into the container image
-COPY /IF.txt /home/data/IF.txt
-COPY /Limerick-1.txt /home/data/Limerick-1.txt
-# Copy the Python script into the container
+# Copy all files in current directory into the container image
+COPY . /home/data
+
+# Copy the script into the container
 COPY script.py /home/script.py
 
 # Set the working directory
